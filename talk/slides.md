@@ -21,13 +21,57 @@ comark: true
 duration: 35min
 ---
 
-# What is Kubernetes?
+
+# Kubernetes
 
 In 10 minutes
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
+
+---
+---
+
+# About Us
+
+<div class="flex justify-center gap-20 mt-16">
+
+<div class="flex flex-col items-center text-center">
+  <img src="https://avatars.githubusercontent.com/u/47752045?v=4" class="w-32 h-32 rounded-full mb-4" alt="Dag Andersen" />
+  <div class="text-xl font-bold">Dag Andersen</div>
+  <div class="text-sm opacity-75 mt-1">Senior Platform Engineer @ Egmont</div>
+</div>
+
+<div class="flex flex-col items-center text-center">
+  <img src="https://avatars.githubusercontent.com/u/25728004?v=4" class="w-32 h-32 rounded-full mb-4" alt="Zander Havgaard" />
+  <div class="text-xl font-bold">Zander Havgaard</div>
+  <div class="text-sm opacity-75 mt-1">Head of Software Platform @ green-dot-ai</div>
+</div>
+
+</div>
+
+---
+layout: two-cols
+layoutClass: gap-16
+---
+
+# We did a conference talk on Kubernetes!
+
+Aarhus 2025 at Cloud Native Denmark.
+
+The talk was called: *"Kubernetes is too complex for startups. WRONG"*
+
+We will be presenting the same content for you today.
+
+However, we know most of you are new to Kubernetes, so we have prepared a short introduction to Kubernetes and some of its core concepts.
+
+::right::
+
+<div class="mt-12 flex justify-center">
+  <img src="/CND 2025.png" class="h-80 rounded-lg shadow-lg" alt="Cloud Native Denmark 2025" />
+</div>
+
 
 ---
 ---
@@ -214,42 +258,6 @@ data:
 Each of these resources serves a different purpose. Notice how the structure is always the same: apiVersion, kind, metadata, spec. This consistency is one of Kubernetes' strengths.
 -->
 
----
----
-
-# Kubernetes Criticism
-
-<div class="grid grid-cols-2 gap-8 mt-10">
-
-<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
-  <div class="text-5xl mb-4">🧠</div>
-  <div class="text-lg font-bold">Steep Learning Curve</div>
-  <div class="text-sm opacity-75 mt-2">Pods, Services, Ingress, CRDs, Operators - the list never ends</div>
-</div>
-
-<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
-  <div class="text-5xl mb-4">🔧</div>
-  <div class="text-lg font-bold">Operational Complexity</div>
-  <div class="text-sm opacity-75 mt-2">Running and maintaining clusters requires dedicated platform teams</div>
-</div>
-
-<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
-  <div class="text-5xl mb-4">📄</div>
-  <div class="text-lg font-bold">YAML Overload</div>
-  <div class="text-sm opacity-75 mt-2">Hundreds of lines of YAML just to deploy a simple app</div>
-</div>
-
-<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
-  <div class="text-5xl mb-4">🐘</div>
-  <div class="text-lg font-bold">Overkill for Small Projects</div>
-  <div class="text-sm opacity-75 mt-2">Not every app needs a container orchestrator</div>
-</div>
-
-</div>
-
-<!--
-It's important to be honest about the downsides. Kubernetes is powerful but it comes with real costs in complexity and operational burden. For small teams or simple apps, it might not be the right choice.
--->
 
 ---
 ---
@@ -304,7 +312,7 @@ A Kubernetes cluster consists of a control plane that manages the cluster, and w
 ---
 ---
 
-# The Reconciliation Loop
+# Controller Pattern / The Reconciliation Loop
 
 <div class="mt-8">
 
@@ -405,6 +413,98 @@ spec:
 This example shows the self-healing in action. You never said "if pod crashes, restart it". You just said "I want 3 replicas" and the controller takes care of the rest, forever.
 -->
 
+
+---
+---
+
+# Ecosystem & Platform Engineering
+
+<div class="grid grid-cols-2 gap-10 mt-6">
+
+<div>
+
+<v-clicks>
+
+- **Platform Engineering** - building an Internal Developer Platform (IDP) so developers can self-serve
+- **Off-the-shelf components** - don't build what you can adopt. Pick proven CNCF tools and glue them together
+- **CNCF Landscape** - 1000+ projects covering every layer of the stack
+
+</v-clicks>
+
+</div>
+
+<div class="flex flex-col items-center">
+
+<div class="text-sm opacity-50 mb-4">Popular CNCF tools</div>
+
+<div class="grid grid-cols-3 gap-4">
+  <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
+    <img src="https://cdn.simpleicons.org/helm/0F1689" class="h-10 w-auto mb-2" alt="Helm" />
+    <div class="text-xs font-bold">Helm</div>
+  </div>
+  <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
+    <img src="https://cdn.simpleicons.org/argo/EF7B4D" class="h-10 w-auto mb-2" alt="Argo CD" />
+    <div class="text-xs font-bold">Argo CD</div>
+  </div>
+  <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
+    <img src="https://cdn.simpleicons.org/prometheus/E6522C" class="h-10 w-auto mb-2" alt="Prometheus" />
+    <div class="text-xs font-bold">Prometheus</div>
+  </div>
+  <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
+    <img src="https://cdn.simpleicons.org/grafana/F46800" class="h-10 w-auto mb-2" alt="Grafana" />
+    <div class="text-xs font-bold">Grafana</div>
+  </div>
+  <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
+    <img src="https://cdn.simpleicons.org/istio/466BB0" class="h-10 w-auto mb-2" alt="Istio" />
+    <div class="text-xs font-bold">Istio</div>
+  </div>
+  <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
+    <img src="https://cdn.simpleicons.org/terraform/844FBA" class="h-10 w-auto mb-2" alt="Terraform" />
+    <div class="text-xs font-bold">Terraform</div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+---
+---
+
+# Kubernetes Criticism
+
+<div class="grid grid-cols-2 gap-8 mt-10">
+
+<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
+  <div class="text-5xl mb-4">🧠</div>
+  <div class="text-lg font-bold">Steep Learning Curve</div>
+  <div class="text-sm opacity-75 mt-2">Pods, Services, Ingress, CRDs, Operators - the list never ends</div>
+</div>
+
+<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
+  <div class="text-5xl mb-4">🔧</div>
+  <div class="text-lg font-bold">Operational Complexity</div>
+  <div class="text-sm opacity-75 mt-2">Running and maintaining clusters requires dedicated platform teams</div>
+</div>
+
+<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
+  <div class="text-5xl mb-4">📄</div>
+  <div class="text-lg font-bold">YAML Overload</div>
+  <div class="text-sm opacity-75 mt-2">Hundreds of lines of YAML just to deploy a simple app</div>
+</div>
+
+<div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-red-500/10">
+  <div class="text-5xl mb-4">🐘</div>
+  <div class="text-lg font-bold">Overkill for Small Projects</div>
+  <div class="text-sm opacity-75 mt-2">Not every app needs a container orchestrator</div>
+</div>
+
+</div>
+
+<!--
+It's important to be honest about the downsides. Kubernetes is powerful but it comes with real costs in complexity and operational burden. For small teams or simple apps, it might not be the right choice.
+-->
+
 ---
 ---
 
@@ -453,7 +553,6 @@ This example shows the self-healing in action. You never said "if pod crashes, r
 <!--
 It's important to know the alternatives. Kubernetes isn't always the answer. For a small team with one service, Docker Compose or a simple VM might be perfectly fine. Choose the right tool for the job.
 -->
-
 
 ---
 layout: two-cols
