@@ -21,7 +21,6 @@ comark: true
 duration: 35min
 ---
 
-
 # Kubernetes
 
 In 10 minutes
@@ -31,6 +30,7 @@ The last comment block of each slide will be treated as slide notes. It will be 
 -->
 
 ---
+
 ---
 
 # About Us
@@ -52,15 +52,17 @@ The last comment block of each slide will be treated as slide notes. It will be 
 </div>
 
 ---
+
 layout: two-cols
 layoutClass: gap-16
+
 ---
 
 # We did a conference talk on Kubernetes!
 
 Aarhus 2025 at Cloud Native Denmark.
 
-The talk was called: *"Kubernetes is too complex for startups. WRONG"*
+The talk was called: _"Kubernetes is too complex for startups. WRONG"_
 
 We will be presenting the same content for you today.
 
@@ -72,8 +74,8 @@ However, we know most of you are new to Kubernetes, so we have prepared a short 
   <img src="/CND 2025.png" class="h-80 rounded-lg shadow-lg" alt="Cloud Native Denmark 2025" />
 </div>
 
-
 ---
+
 ---
 
 # What is Kubernetes?
@@ -119,6 +121,7 @@ Kubernetes was born out of Google's internal system called Borg, which ran their
 -->
 
 ---
+
 ---
 
 # Before Kubernetes
@@ -156,8 +159,10 @@ Before Kubernetes, deploying and managing applications was largely a manual, err
 -->
 
 ---
+
 layout: two-cols
 layoutClass: gap-16
+
 ---
 
 # Core Concepts
@@ -173,7 +178,6 @@ layoutClass: gap-16
 <div class="mt-12">
 
 ````md magic-move {lines: true}
-
 ```yaml
 
 ```
@@ -258,8 +262,8 @@ data:
 Each of these resources serves a different purpose. Notice how the structure is always the same: apiVersion, kind, metadata, spec. This consistency is one of Kubernetes' strengths.
 -->
 
-
 ---
+
 ---
 
 # Cluster Architecture
@@ -310,6 +314,7 @@ A Kubernetes cluster consists of a control plane that manages the cluster, and w
 -->
 
 ---
+
 ---
 
 # Controller Pattern / The Reconciliation Loop
@@ -330,6 +335,12 @@ graph LR
 
 You tell Kubernetes **what** you want - not **how** to get there
 
+Everything can be expressed as declarative objects (Yaml manifests) == \*-as-code.
+
+The Kubernetes Control Plane will _continuously reconcile_ your desired state with the actual state.
+
+The Control Plane can be extended via 3rd party `Custom Resource Definitions (CRDs)` and `controllers/operators` == control stuff outside K8s.
+
 </div>
 
 </v-click>
@@ -339,6 +350,7 @@ This is the key mental model for Kubernetes. You declare the desired state in YA
 -->
 
 ---
+
 ---
 
 # Desired State vs Actual State
@@ -413,8 +425,8 @@ spec:
 This example shows the self-healing in action. You never said "if pod crashes, restart it". You just said "I want 3 replicas" and the controller takes care of the rest, forever.
 -->
 
-
 ---
+
 ---
 
 # Ecosystem & Platform Engineering
@@ -469,6 +481,7 @@ This example shows the self-healing in action. You never said "if pod crashes, r
 </div>
 
 ---
+
 ---
 
 # Kubernetes Criticism
@@ -506,6 +519,7 @@ It's important to be honest about the downsides. Kubernetes is powerful but it c
 -->
 
 ---
+
 ---
 
 # Alternatives to Kubernetes
@@ -555,8 +569,10 @@ It's important to know the alternatives. Kubernetes isn't always the answer. For
 -->
 
 ---
+
 layout: two-cols
 layoutClass: gap-16
+
 ---
 
 # One More Thing...
