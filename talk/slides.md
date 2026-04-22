@@ -121,7 +121,7 @@ Kubernetes was born out of Google's internal system called Borg, which ran their
 ---
 ---
 
-# Before Kubernetes
+# The Good Old Days
 
 <div class="grid grid-cols-2 gap-8 mt-12">
 
@@ -262,85 +262,6 @@ Each of these resources serves a different purpose. Notice how the structure is 
 ---
 ---
 
-# Cluster Architecture
-
-<div class="grid grid-cols-2 gap-6 mt-10">
-
-<div class="p-5 rounded-lg border-2 border-blue-400/50 bg-blue-500/10">
-  <div class="text-sm font-bold text-blue-400 mb-3">🧠 Control Plane</div>
-  <div class="grid grid-cols-2 gap-2">
-    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">API Server</div>
-    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">Scheduler</div>
-    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">Controller Manager</div>
-    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">etcd</div>
-  </div>
-</div>
-
-<div class="p-5 rounded-lg border-2 border-green-400/50 bg-green-500/10">
-  <div class="text-sm font-bold text-green-400 mb-3">⚙️ Worker Node 1</div>
-  <div class="flex gap-2 flex-wrap">
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 nginx</div>
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 api</div>
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 redis</div>
-  </div>
-</div>
-
-<div class="p-5 rounded-lg border-2 border-green-400/50 bg-green-500/10">
-  <div class="text-sm font-bold text-green-400 mb-3">⚙️ Worker Node 2</div>
-  <div class="flex gap-2 flex-wrap">
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 api</div>
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 worker</div>
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 api</div>
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 logs</div>
-  </div>
-</div>
-
-<div class="p-5 rounded-lg border-2 border-green-400/50 bg-green-500/10">
-  <div class="text-sm font-bold text-green-400 mb-3">⚙️ Worker Node 3</div>
-  <div class="flex gap-2 flex-wrap">
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 postgres</div>
-    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 worker</div>
-  </div>
-</div>
-
-</div>
-
-<!--
-A Kubernetes cluster consists of a control plane that manages the cluster, and worker nodes that run your actual workloads. The control plane decides where to place containers, the worker nodes execute them.
--->
-
----
----
-
-# Controller Pattern / The Reconciliation Loop
-
-<div class="mt-8">
-
-```mermaid {scale: 0.9}
-graph LR
-    A["🔄 Controller"] -->|"Observe & Act"| B["🖥️ State"]
-    B -->|"Report back"| A
-```
-
-</div>
-
-<v-click>
-
-<div class="mt-6 text-center text-lg">
-
-You tell Kubernetes **what** you want - not **how** to get there
-
-</div>
-
-</v-click>
-
-<!--
-This is the key mental model for Kubernetes. You declare the desired state in YAML, and controllers continuously watch and reconcile. If a pod crashes, the controller notices the mismatch and creates a new one. This is fundamentally different from imperative scripting.
--->
-
----
----
-
 # Desired State vs Actual State
 
 <div class="grid grid-cols-2 gap-12 mt-8">
@@ -413,6 +334,91 @@ spec:
 This example shows the self-healing in action. You never said "if pod crashes, restart it". You just said "I want 3 replicas" and the controller takes care of the rest, forever.
 -->
 
+
+---
+---
+
+# Controller Pattern / The Reconciliation Loop
+
+<div class="mt-8">
+
+```mermaid {scale: 0.9}
+graph LR
+    A["🔄 Controller"] -->|"Observe & Act"| B["🖥️ State"]
+    B -->|"Report back"| A
+```
+
+</div>
+
+<v-click>
+
+<div class="mt-6 text-center text-lg">
+
+You tell Kubernetes **what** you want - not **how** to get there
+
+Everything can be expressed as declarative objects (Yaml manifests) == \*-as-code.
+                                                                                
+The Kubernetes Control Plane will _continuously reconcile_ your desired state with the actual state.
+                                                                                
+The Control Plane can be extended via 3rd party `Custom Resource Definitions (CRDs)` and `controllers/operators` == control stuff outside K8s.
+
+</div>
+
+</v-click>
+
+<!--
+This is the key mental model for Kubernetes. You declare the desired state in YAML, and controllers continuously watch and reconcile. If a pod crashes, the controller notices the mismatch and creates a new one. This is fundamentally different from imperative scripting.
+-->
+
+---
+---
+
+# Cluster Architecture
+
+<div class="grid grid-cols-2 gap-6 mt-10">
+
+<div class="p-5 rounded-lg border-2 border-blue-400/50 bg-blue-500/10">
+  <div class="text-sm font-bold text-blue-400 mb-3">🧠 Control Plane</div>
+  <div class="grid grid-cols-2 gap-2">
+    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">API Server</div>
+    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">Scheduler</div>
+    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">Controller Manager</div>
+    <div class="p-2 rounded bg-blue-500/20 text-xs text-center">etcd</div>
+  </div>
+</div>
+
+<div class="p-5 rounded-lg border-2 border-green-400/50 bg-green-500/10">
+  <div class="text-sm font-bold text-green-400 mb-3">⚙️ Worker Node 1</div>
+  <div class="flex gap-2 flex-wrap">
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 nginx</div>
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 api</div>
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 redis</div>
+  </div>
+</div>
+
+<div class="p-5 rounded-lg border-2 border-green-400/50 bg-green-500/10">
+  <div class="text-sm font-bold text-green-400 mb-3">⚙️ Worker Node 2</div>
+  <div class="flex gap-2 flex-wrap">
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 api</div>
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 worker</div>
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 api</div>
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 logs</div>
+  </div>
+</div>
+
+<div class="p-5 rounded-lg border-2 border-green-400/50 bg-green-500/10">
+  <div class="text-sm font-bold text-green-400 mb-3">⚙️ Worker Node 3</div>
+  <div class="flex gap-2 flex-wrap">
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 postgres</div>
+    <div class="p-2 rounded bg-green-500/20 text-xs text-center">🐳 worker</div>
+  </div>
+</div>
+
+</div>
+
+<!--
+A Kubernetes cluster consists of a control plane that manages the cluster, and worker nodes that run your actual workloads. The control plane decides where to place containers, the worker nodes execute them.
+-->
 
 ---
 ---
