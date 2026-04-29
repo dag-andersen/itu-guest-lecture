@@ -35,7 +35,7 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 # About Us
 
-<div class="flex justify-center gap-20 mt-16">
+<div class="flex justify-center items-center gap-20" style="height: 80%">
 
 <div class="flex flex-col items-center text-center">
   <img src="https://avatars.githubusercontent.com/u/47752045?v=4" class="w-32 h-32 rounded-full mb-4" alt="Dag Andersen" />
@@ -78,39 +78,42 @@ However, we know most of you are new to Kubernetes, so we have prepared a short 
 
 # What is Kubernetes?
 
-<div class="grid grid-cols-5 gap-6 mt-12">
+<div class="flex flex-col justify-center" style="height: 100%">
 
-<div v-click class="flex flex-col items-center text-center p-4 rounded-lg bg-gray-500/10">
+<div class="grid grid-cols-5 gap-6">
+
+<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
   <div class="text-4xl mb-3">📖</div>
   <div class="font-bold">Open Source</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-4 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">☁️</div>
+<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
+  <img src="https://raw.githubusercontent.com/cncf/artwork/main/other/cncf/icon/color/cncf-icon-color.png" class="h-10 w-auto mb-3" alt="CNCF" />
   <div class="font-bold">CNCF Project</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-4 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">🔍</div>
+<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Google_Favicon_2025.svg/960px-Google_Favicon_2025.svg.png" class="h-10 w-auto mb-3" alt="Google" />
   <div class="font-bold">Made by Google</div>
-  <div class="text-xs opacity-75 mt-1">Over 10 years ago</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-4 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
   <div class="text-4xl mb-3">🏆</div>
   <div class="font-bold">Industry Standard</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-4 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
   <div class="text-4xl mb-3">🌍</div>
   <div class="font-bold">Huge Ecosystem</div>
 </div>
 
 </div>
 
-<div v-click class="mt-10 text-center text-lg opacity-75">
+<div class="mt-10 text-center text-lg opacity-75">
 
 An open-source container orchestration platform that automates deployment, scaling, and management of containerized applications
+
+</div>
 
 </div>
 
@@ -425,7 +428,9 @@ A Kubernetes cluster consists of a control plane that manages the cluster, and w
 
 # Ecosystem & Platform Engineering
 
-<div class="grid grid-cols-2 gap-10 mt-6">
+<div class="flex flex-col justify-center" style="height: 80%">
+
+<div class="grid grid-cols-2 gap-10">
 
 <div>
 
@@ -445,11 +450,11 @@ A Kubernetes cluster consists of a control plane that manages the cluster, and w
 
 <div class="grid grid-cols-3 gap-4">
   <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
-    <img src="https://cdn.simpleicons.org/helm/0F1689" class="h-10 w-auto mb-2" alt="Helm" />
+    <img src="/helm-icon-white.svg" class="h-10 w-auto mb-2" alt="Helm" />
     <div class="text-xs font-bold">Helm</div>
   </div>
   <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
-    <img src="https://cdn.simpleicons.org/argo/EF7B4D" class="h-10 w-auto mb-2" alt="Argo CD" />
+    <img src="/argo-icon-color.svg" class="h-10 w-auto mb-2" alt="Argo CD" />
     <div class="text-xs font-bold">Argo CD</div>
   </div>
   <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
@@ -465,9 +470,11 @@ A Kubernetes cluster consists of a control plane that manages the cluster, and w
     <div class="text-xs font-bold">Istio</div>
   </div>
   <div class="flex flex-col items-center p-3 rounded-lg bg-gray-500/10">
-    <img src="https://cdn.simpleicons.org/terraform/844FBA" class="h-10 w-auto mb-2" alt="Terraform" />
-    <div class="text-xs font-bold">Terraform</div>
+    <img src="/falco-icon-color.svg" class="h-10 w-auto mb-2" alt="Falco" />
+    <div class="text-xs font-bold">Falco</div>
   </div>
+</div>
+
 </div>
 
 </div>
@@ -519,37 +526,37 @@ It's important to be honest about the downsides. Kubernetes is powerful but it c
 <div class="grid grid-cols-3 gap-6 mt-10">
 
 <div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">🐳</div>
+  <img src="https://cdn.simpleicons.org/docker/2496ED" class="h-10 w-auto mb-3" alt="Docker Compose" />
   <div class="font-bold">Docker Compose</div>
   <div class="text-xs opacity-75 mt-2">Simple multi-container apps on a single host. Great for dev, not for production scale.</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">🟠</div>
+  <img src="https://cdn.simpleicons.org/nomad/00CA8E" class="h-10 w-auto mb-3" alt="Nomad" />
   <div class="font-bold">HashiCorp Nomad</div>
   <div class="text-xs opacity-75 mt-2">Simpler orchestrator. Containers, VMs, and bare metal. Less ecosystem, less complexity.</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">🔶</div>
+  <img src="/aws-ecs.svg" class="h-10 w-auto mb-3" alt="AWS ECS" />
   <div class="font-bold">AWS ECS</div>
   <div class="text-xs opacity-75 mt-2">AWS-native container orchestration. Simpler than K8s but locks you into AWS.</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">⚡</div>
+  <img src="/aws-lambda.svg" class="h-10 w-auto mb-3" alt="Serverless" />
   <div class="font-bold">Serverless</div>
   <div class="text-xs opacity-75 mt-2">Lambda, Cloud Functions, Cloud Run. No servers to manage at all. Pay per invocation.</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">🐝</div>
+  <img src="https://cdn.simpleicons.org/docker/2496ED" class="h-10 w-auto mb-3" alt="Docker Swarm" />
   <div class="font-bold">Docker Swarm</div>
   <div class="text-xs opacity-75 mt-2">Docker's built-in orchestrator. Simple but limited. Mostly abandoned in favor of K8s.</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">🖥️</div>
+  <img src="https://cdn.simpleicons.org/linux/FCC624" class="h-10 w-auto mb-3" alt="VM" />
   <div class="font-bold">Just a VM</div>
   <div class="text-xs opacity-75 mt-2">Sometimes the simplest solution is the right one. Not everything needs orchestration.</div>
 </div>
@@ -577,15 +584,20 @@ This presentation is running inside Kubernetes 🤯
 
 <v-click>
 
-<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="flex flex-col gap-4 mt-6">
 
-<div class="flex flex-col items-center text-center p-4 rounded-lg bg-blue-500/10">
-  <img src="https://raw.githubusercontent.com/kubernetes-sigs/kind/main/logo/logo.png" class="h-12 w-auto mb-2" alt="kind" />
-  <div class="font-bold text-sm">Kubernetes (kind)</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-blue-500/10">
+  <img src="https://sli.dev/logo.png" class="h-10 w-auto" alt="Slidev" />
+  <div class="font-bold text-sm">Slidev (sli.dev)</div>
 </div>
 
-<div class="flex flex-col items-center text-center p-4 rounded-lg bg-blue-500/10">
-  <img src="https://cdn.simpleicons.org/cloudflare/F38020" class="w-12 h-12 mb-2" alt="Cloudflare" />
+<div class="flex items-center gap-3 p-3 rounded-lg bg-blue-500/10">
+  <img src="https://raw.githubusercontent.com/kubernetes-sigs/kind/main/logo/logo.png" class="h-10 w-auto" alt="kind" />
+  <div class="font-bold text-sm">KinD (Kubernetes in Docker)</div>
+</div>
+
+<div class="flex items-center gap-3 p-3 rounded-lg bg-blue-500/10">
+  <img src="https://cdn.simpleicons.org/cloudflare/F38020" class="h-10 w-auto" alt="Cloudflare" />
   <div class="font-bold text-sm">Cloudflare Tunnel</div>
 </div>
 
@@ -603,7 +615,7 @@ kind: Deployment
 metadata:
   name: itu-demo
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: itu-demo
