@@ -22,9 +22,21 @@ duration: 35min
 ---
 
 
-# Kubernetes
+# Kubernetes,<br>Complexity,<br>and Startups
 
-In 10 minutes
+<style>
+.slidev-page-1 .slidev-layout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+.slidev-page-1 .slidev-layout > * {
+  position: relative;
+  z-index: 1;
+}
+</style>
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -66,6 +78,8 @@ We will be presenting the same content for you today.
 
 However, we know most of you are new to Kubernetes, so we have prepared a short introduction to Kubernetes and some of its core concepts.
 
+Todays focus will be on Kubernetes, Startups, and Complexity. 
+
 ::right::
 
 <div class="mt-12 flex justify-center">
@@ -78,41 +92,42 @@ However, we know most of you are new to Kubernetes, so we have prepared a short 
 
 # What is Kubernetes?
 
-<div class="flex flex-col justify-center" style="height: 100%">
+<div class="grid grid-cols-3 gap-6 mt-10">
 
-<div class="grid grid-cols-5 gap-6">
+<div class="flex flex-col items-center justify-center text-center p-5 rounded-lg bg-gray-500/10">
+  <div class="text-4xl mb-3">📦</div>
+  <div class="font-bold">Container Orchestration</div>
+  <div class="text-xs opacity-75 mt-2">Automates deployment, scaling, and management of containerized applications</div>
+</div>
 
-<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
-  <div class="text-4xl mb-3">📖</div>
+<div class="flex flex-col items-center justify-center text-center p-5 rounded-lg bg-gray-500/10">
+  <img src="/kubernetes-icon-color.svg" class="h-10 w-auto mb-3" alt="Kubernetes" />
   <div class="font-bold">Open Source</div>
+  <div class="text-xs opacity-75 mt-2">Free to use, backed by a massive community of contributors</div>
 </div>
 
-<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
-  <img src="https://raw.githubusercontent.com/cncf/artwork/main/other/cncf/icon/color/cncf-icon-color.png" class="h-10 w-auto mb-3" alt="CNCF" />
-  <div class="font-bold">CNCF Project</div>
-</div>
-
-<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Google_Favicon_2025.svg/960px-Google_Favicon_2025.svg.png" class="h-10 w-auto mb-3" alt="Google" />
-  <div class="font-bold">Made by Google</div>
-</div>
-
-<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center justify-center text-center p-5 rounded-lg bg-gray-500/10">
   <div class="text-4xl mb-3">🏆</div>
   <div class="font-bold">Industry Standard</div>
+  <div class="text-xs opacity-75 mt-2">Used by most Fortune 500 companies in production</div>
 </div>
 
-<div class="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center justify-center text-center p-5 rounded-lg bg-gray-500/10">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Google_Favicon_2025.svg/960px-Google_Favicon_2025.svg.png" class="h-10 w-auto mb-3" alt="Google" />
+  <div class="font-bold">Made by Google</div>
+  <div class="text-xs opacity-75 mt-2">Born from Google's internal Borg system, over 10 years ago</div>
+</div>
+
+<div class="flex flex-col items-center justify-center text-center p-5 rounded-lg bg-gray-500/10">
+  <img src="https://raw.githubusercontent.com/cncf/artwork/main/other/cncf/icon/color/cncf-icon-color.png" class="h-10 w-auto mb-3" alt="CNCF" />
+  <div class="font-bold">CNCF Project</div>
+  <div class="text-xs opacity-75 mt-2">Graduated project under the Cloud Native Computing Foundation</div>
+</div>
+
+<div class="flex flex-col items-center justify-center text-center p-5 rounded-lg bg-gray-500/10">
   <div class="text-4xl mb-3">🌍</div>
   <div class="font-bold">Huge Ecosystem</div>
-</div>
-
-</div>
-
-<div class="mt-10 text-center text-lg opacity-75">
-
-An open-source container orchestration platform that automates deployment, scaling, and management of containerized applications
-
+  <div class="text-xs opacity-75 mt-2">1000+ tools and integrations in the CNCF landscape</div>
 </div>
 
 </div>
@@ -124,32 +139,32 @@ Kubernetes was born out of Google's internal system called Borg, which ran their
 ---
 ---
 
-# The Good Old Days
+# Main Selling Points
 
 <div class="grid grid-cols-2 gap-8 mt-12">
 
 <div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-gray-500/10">
-  <div class="text-5xl mb-4">🖥️</div>
-  <div class="text-lg font-bold">Manual Deployments</div>
-  <div class="text-sm opacity-75 mt-2">SSH into servers, copy files, restart processes</div>
+  <div class="text-5xl mb-4">☁️</div>
+  <div class="text-lg font-bold">Vendor Neutral</div>
+  <div class="text-sm opacity-75 mt-2">Helps you avoid vendor lock-in</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-gray-500/10">
   <div class="text-5xl mb-4">📈</div>
-  <div class="text-lg font-bold">Painful Scaling</div>
-  <div class="text-sm opacity-75 mt-2">Spin up new VMs, install deps, configure load balancers</div>
+  <div class="text-lg font-bold">Auto Scaling</div>
+  <div class="text-sm opacity-75 mt-2">Automatically scales up or down based on demand</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-gray-500/10">
-  <div class="text-5xl mb-4">🔥</div>
-  <div class="text-lg font-bold">No Self-Healing</div>
-  <div class="text-sm opacity-75 mt-2">Process crashes at 3 AM - someone gets paged</div>
+  <div class="text-5xl mb-4">💚</div>
+  <div class="text-lg font-bold">Auto Healing</div>
+  <div class="text-sm opacity-75 mt-2">Crashed containers are automatically restarted and rescheduled</div>
 </div>
 
 <div v-click class="flex flex-col items-center text-center p-6 rounded-lg bg-gray-500/10">
-  <div class="text-5xl mb-4">💸</div>
-  <div class="text-lg font-bold">Wasted Resources</div>
-  <div class="text-sm opacity-75 mt-2">One app per server - most CPU and memory sits idle</div>
+  <div class="text-5xl mb-4">🔄</div>
+  <div class="text-lg font-bold">Rolling Deployments</div>
+  <div class="text-sm opacity-75 mt-2">Zero-downtime updates with automatic rollback on failure</div>
 </div>
 
 </div>
@@ -539,7 +554,7 @@ It's important to be honest about the downsides. Kubernetes is powerful but it c
 
 <div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
   <img src="/aws-ecs.svg" class="h-10 w-auto mb-3" alt="AWS ECS" />
-  <div class="font-bold">AWS ECS</div>
+  <div class="font-bold">Cloud Run / Fargate / Container Apps </div>
   <div class="text-xs opacity-75 mt-2">AWS-native container orchestration. Simpler than K8s but locks you into AWS.</div>
 </div>
 
