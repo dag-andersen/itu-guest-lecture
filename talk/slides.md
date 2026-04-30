@@ -540,37 +540,37 @@ It's important to be honest about the downsides. Kubernetes is powerful but it c
 
 <div class="grid grid-cols-3 gap-6 mt-10">
 
-<div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
   <img src="https://cdn.simpleicons.org/docker/2496ED" class="h-10 w-auto mb-3" alt="Docker Compose" />
   <div class="font-bold">Docker Compose</div>
   <div class="text-xs opacity-75 mt-2">Simple multi-container apps on a single host. Great for dev, not for production scale.</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
   <img src="https://cdn.simpleicons.org/nomad/00CA8E" class="h-10 w-auto mb-3" alt="Nomad" />
   <div class="font-bold">HashiCorp Nomad</div>
   <div class="text-xs opacity-75 mt-2">Simpler orchestrator. Containers, VMs, and bare metal. Less ecosystem, less complexity.</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
   <img src="/aws-ecs.svg" class="h-10 w-auto mb-3" alt="AWS ECS" />
   <div class="font-bold">Cloud Run / Fargate / Container Apps </div>
   <div class="text-xs opacity-75 mt-2">AWS-native container orchestration. Simpler than K8s but locks you into AWS.</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
   <img src="/aws-lambda.svg" class="h-10 w-auto mb-3" alt="Serverless" />
   <div class="font-bold">Serverless</div>
   <div class="text-xs opacity-75 mt-2">Lambda, Cloud Functions, Cloud Run. No servers to manage at all. Pay per invocation.</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
   <img src="https://cdn.simpleicons.org/docker/2496ED" class="h-10 w-auto mb-3" alt="Docker Swarm" />
   <div class="font-bold">Docker Swarm</div>
   <div class="text-xs opacity-75 mt-2">Docker's built-in orchestrator. Simple but limited. Mostly abandoned in favor of K8s.</div>
 </div>
 
-<div v-click class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
+<div class="flex flex-col items-center text-center p-5 rounded-lg bg-gray-500/10">
   <img src="https://cdn.simpleicons.org/linux/FCC624" class="h-10 w-auto mb-3" alt="VM" />
   <div class="font-bold">Just a VM</div>
   <div class="text-xs opacity-75 mt-2">Sometimes the simplest solution is the right one. Not everything needs orchestration.</div>
@@ -589,15 +589,9 @@ layoutClass: gap-16
 
 # One More Thing...
 
-<v-click>
-
 <div class="text-xl mt-8 mb-4">
 This presentation is running inside Kubernetes 🤯
 </div>
-
-</v-click>
-
-<v-click>
 
 <div class="flex flex-col gap-4 mt-6">
 
@@ -618,11 +612,9 @@ This presentation is running inside Kubernetes 🤯
 
 </div>
 
-</v-click>
-
 ::right::
 
-<div v-click class="mt-12">
+<div class="mt-12">
 
 ```yaml
 apiVersion: apps/v1
